@@ -1,0 +1,41 @@
+# target_name
+mode: phase0
+
+#model
+model_name: vae2_linear
+pretrain_file: ./result/Phase0_vae_linear_origin_b64_lr1e-3_6.pt
+model_file: ./result/Phase0_vae_linear_origin_b64_lr1e-3_6.pt
+
+#data
+dataset_name: ARCDataset
+train_data: ./data/phase0_train_vae1.json
+valid_data: ./data/phase0_valid_vae1.json
+test_data: None
+
+#hyperparameters
+seed: 777
+lr: 1e-3
+epochs: 6
+train_batch_size: 64
+valid_batch_size: 1
+kind_of_loss: cross
+optimizer: AdamW
+scheduler: LambdaLR
+lr_lambda: 0.97
+step_size: 10
+gamma: 0.5
+
+#options
+use_permute: True
+use_rotate: True
+use_pretrain: False
+use_train: True
+use_valid: True
+use_test: False
+use_wandb: False
+use_batch: True
+use_size: True
+
+#etc
+save_dir: './result'
+trainer: Phase0_Trainer

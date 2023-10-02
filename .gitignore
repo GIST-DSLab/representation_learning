@@ -1,0 +1,8 @@
+*.csv
+*.json
+backup_file/
+data/
+original_data/
+wandb/
+result/
+.idea/

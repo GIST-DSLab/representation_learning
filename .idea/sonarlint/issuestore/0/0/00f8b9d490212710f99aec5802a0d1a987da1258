@@ -1,0 +1,22 @@
+
+_python:S2208"GImport only needed names or import the module and then use its members.(£÷ ¡
+‚python:S101"kRename class "vae_Linear_origin" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¡ÜãÑ
+;python:S125X"Remove this commented out code.(üÆ‚Úûÿÿÿÿ
+<python:S125‚"Remove this commented out code.(ô’ÖÍûÿÿÿÿ
+<python:S125„"Remove this commented out code.(ëæþÃýÿÿÿÿ
+<python:S125ˆ"Remove this commented out code.(ô’ÖÍûÿÿÿÿ
+<python:S125Š"Remove this commented out code.(ª®Ê§ùÿÿÿÿ
+<python:S125"Remove this commented out code.(ô’ÖÍûÿÿÿÿ
+<python:S125’"Remove this commented out code.(ëæþÃýÿÿÿÿ
+python:S1845¾"oRename field "Center_layer" to prevent any misunderstanding/clash with field "center_layer" defined on line 174(øÝ£’øÿÿÿÿ
+„python:S1845Á"kRename field "Copy_layer" to prevent any misunderstanding/clash with field "copy_layer" defined on line 179(•æÇ¯
+†python:S1845Â"mRename field "Count_layer" to prevent any misunderstanding/clash with field "count_layer" defined on line 171(þéëž
+†python:S1845É"mRename field "Order_layer" to prevent any misunderstanding/clash with field "order_layer" defined on line 184(‹–ˆÄ
+Rpython:S1135¦"4Complete the task associated to this "TODO" comment.(“ÜÈ½úÿÿÿÿ
+7python:S125Ø"Remove this commented out code.(›¤·Æ
+7python:S125ñ"Remove this commented out code.(ÊøŒÔ
+<python:S125‘"Remove this commented out code.(žŽ½‡ùÿÿÿÿ
+<python:S125•"Remove this commented out code.(øþµÜúÿÿÿÿ
+bpython:S3358–"IExtract this nested conditional expression into an independent statement.(ÚåÀ¡
+<python:S125˜"Remove this commented out code.(ËÎÏ¸þÿÿÿÿ
+<python:S125¯"Remove this commented out code.(®¦„ýùÿÿÿÿ

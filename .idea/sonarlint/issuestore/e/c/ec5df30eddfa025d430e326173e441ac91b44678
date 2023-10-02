@@ -1,0 +1,22 @@
+
+fpython:S2208"GImport only needed names or import the module and then use its members.(É™ùÖ8ÕÜÚ®1
+†python:S101"hRename class "Phase2_Trainer" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ë¥›´8ÕÜÚ®1
+Spython:S1135"4Complete the task associated to this "TODO" comment.(ÒâÓ®8ÕÜÚ®1
+Mpython:S14810"/Remove the unused local variable "output_grid".(Ù÷†s8ÕÜÚ®1
+Lpython:S1481/"-Remove the unused local variable "data_grid".(²ŸÊ¶8ÕÜÚ®1
+Npython:S1481-"/Remove the unused local variable "view_output".(¨–ëÎ8ÕÜÚ®1
+xpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 62 to the 15 allowed.(ùëıÿÿÿÿ8ÕÜÚ®1
+Bpython:S125""Remove this commented out code.(ğ»İ×şÿÿÿÿ8ÕÜÚ®1
+=python:S125+"Remove this commented out code.(Ñ­É8ÕÜÚ®1
+Xpython:S11352"4Complete the task associated to this "TODO" comment.(¸…Ëäüÿÿÿÿ8ÕÜÚ®1
+Spython:S1135="4Complete the task associated to this "TODO" comment.(„†Ôß8ÕÜÚ®1
+Bpython:S125C"Remove this commented out code.(™Œ€şÿÿÿÿ8ÕÜÚ®1
+Qpython:S1481{"-Remove the unused local variable "data_grid".(µæ™ªşÿÿÿÿ8ÕÜÚ®1
+Mpython:S1481|"/Remove the unused local variable "output_grid".(¸ôœ%8ÕÜÚ®1
+xpython:S3776a"TRefactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed.(Ù½šùÿÿÿÿ8ÕÜÚ®1
+Bpython:S125i"Remove this commented out code.(ú…²àûÿÿÿÿ8ÕÜÚ®1
+Bpython:S125s"Remove this commented out code.(ğ»İ×şÿÿÿÿ8ÕÜÚ®1
+Spython:S1135y"4Complete the task associated to this "TODO" comment.(ôÚ¯ã8ÕÜÚ®1
+Xpython:S1135~"4Complete the task associated to this "TODO" comment.(¸…Ëäüÿÿÿÿ8ÕÜÚ®1
+Tpython:S1135Œ"4Complete the task associated to this "TODO" comment.(„†Ôß8ÕÜÚ®1
+Hpython:S108")Either remove or fill this block of code.(ã‘Û¾8ÕÜÚ®1
