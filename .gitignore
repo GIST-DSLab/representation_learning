@@ -6,3 +6,4 @@ original_data/
 wandb/
 result/
 .idea/
+*.pyc
