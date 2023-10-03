@@ -39,3 +39,4 @@ use_size: True
 #etc
 save_dir: './result'
 trainer: Phase0_v1_1_Trainer
+cuda_num: 0

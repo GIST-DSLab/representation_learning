@@ -28,9 +28,9 @@ class Phase1_Trainer(Base_Trainer):
                 for input, output, task in self.train_loader:
                     train_batch_size = input.shape[0]
                     train_count += train_batch_size
-                    input = input.to(torch.float32).to('cuda')
-                    output = output.to(torch.float32).to('cuda')
-                    task = task.to(torch.long).to('cuda')
+                    input = input.to(torch.float32).to(self.device)
+                    output = output.to(torch.float32).to(self.device)
+                    task = task.to(torch.long).to(self.device)
 
                     output = self.model(input, output)
 
@@ -82,9 +82,9 @@ class Phase1_Trainer(Base_Trainer):
         for input, output, task in self.valid_loader:
             valid_batch_size = input.shape[0]
             valid_count += input.shape[0]
-            input = input.to(torch.float32).to('cuda')
-            output = output.to(torch.float32).to('cuda')
-            task = task.to(torch.long).to('cuda')
+            input = input.to(torch.float32).to(self.device)
+            output = output.to(torch.float32).to(self.device)
+            task = task.to(torch.long).to(self.device)
 
             output = self.model(input, output)
 

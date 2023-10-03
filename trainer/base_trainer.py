@@ -26,9 +26,11 @@ class Base_Trainer:
 
         self.model_name = config['model_name']
         self.mode_name = config['mode']
+        self.device = f'cuda:{config["cuda_num"]}' if config['cuda_num'].lower() != 'cpu' else 'cpu'
 
         self.total_acc = 0
         self.count = 0
+
 
     @abstractmethod
     def train_epoch(self):

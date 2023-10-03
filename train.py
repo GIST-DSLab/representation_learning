@@ -36,6 +36,7 @@ def main(config, args):
     valid_dataset_name = config['valid_data']
 
     mode = config['mode']
+    device = f'cuda:{config["cuda_num"]}' if config['cuda_num'].lower() != 'cpu' else 'cpu'
 
     # setup data_loader instances
     # dataloader 설정
@@ -54,14 +55,14 @@ def main(config, args):
 
     # setup model
     # 모델 설정
-    model = globals()[model_name](model_file).to('cuda')
+    model = globals()[model_name](model_file).to(device)
     if use_pretrain:
         pretrain_file = config['pretrain_file']
         model.load_state_dict(torch.load(pretrain_file))
 
     # setup function handles of loss and metrics
     # loss함수와 metrics 설정
-    criterion = set_loss(kind_of_loss).to('cuda')
+    criterion = set_loss(kind_of_loss).to(device)
 
     # setup optimizer and learning scheduler
     # optimizer와 learning scheduler 설정

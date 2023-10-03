@@ -226,7 +226,7 @@ class Phase0_v1_2_Trainer(Base_Trainer):
         self.model.eval()
 
         for input, output, concat in self.valid_loader:
-            concat = concat.clone().detach().to('cuda')
+            concat = concat.clone().detach().to(self.device)
 
             concat_pred = self.model(concat)
 
@@ -267,8 +267,8 @@ class Phase0_v2_Trainer(Base_Trainer):
                 self.model.train()
                 for input, output in self.train_loader:
                     total_loss = []
-                    input = input.clone().detach().to('cuda')
-                    output = output.clone().detach().to('cuda')
+                    input = input.clone().detach().to(self.device)
+                    output = output.clone().detach().to(self.device)
 
                     input_pred, output_pred = self.model(input, output)
 
@@ -305,10 +305,10 @@ class Phase0_v2_Trainer(Base_Trainer):
 
         for input, output in self.valid_loader:
             total_loss = []
-            # input = torch.tensor(input).to('cuda')
-            # output = torch.tensor(output).to('cuda')
-            input = input.clone().detach().to('cuda')
-            output = output.clone().detach().to('cuda')
+            # input = torch.tensor(input).to(self.device)
+            # output = torch.tensor(output).to(self.device)
+            input = input.clone().detach().to(self.device)
+            output = output.clone().detach().to(self.device)
 
             input_pred, output_pred = self.model(input, output)
 

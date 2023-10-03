@@ -24,7 +24,7 @@ class Phase2_Trainer(Base_Trainer):
                 train_loss = []
                 for data, size in self.train_loader:
                     total_loss = []
-                    data = torch.tensor(data).to(torch.float32).to('cuda')
+                    data = torch.tensor(data).to(torch.float32).to(self.device)
                     if self.use_batch:
                         data = data.unsqueeze(1)
 
@@ -101,7 +101,7 @@ class Phase2_Trainer(Base_Trainer):
         total_loss = []
 
         for data, size in self.valid_loader:
-            data = torch.tensor(data).to(torch.float32).to('cuda')
+            data = torch.tensor(data).to(torch.float32).to(self.device)
             # if use_permute:
             #     for i in range(30):
             #         for j in range(30):
