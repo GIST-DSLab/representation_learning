@@ -36,7 +36,7 @@ def main(config, args):
     valid_dataset_name = config['valid_data']
 
     mode = config['mode']
-    device = f'cuda:{config["cuda_num"]}' if config['cuda_num'].lower() != 'cpu' else 'cpu'
+    device = f'cuda:{config["cuda_num"]}' if type(config['cuda_num']) == int else 'cpu'
 
     # setup data_loader instances
     # dataloader 설정
