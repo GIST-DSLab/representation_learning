@@ -5,5 +5,5 @@ data/
 original_data/
 wandb/
 result/
-.idea/
+.idea/*
 *.pyc
