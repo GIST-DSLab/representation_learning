@@ -1,3 +1,5 @@
+import torch.cuda
+
 from model import *
 from dataset import *
 from torch.utils.data import DataLoader
@@ -37,7 +39,7 @@ def main(config, args):
 
     mode = config['mode']
     device = torch.device(config["cuda_num"] if type(config['cuda_num']) == int else 'cpu')
-    os.environ["CUDA_VISIBLE_DEVICES"] = str(config["cuda_num"]) if type(config['cuda_num']) == int else 'cpu'
+    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3" if torch.cuda.device_count() > 0 else "0"
 
     # setup data_loader instances
     # dataloader 설정
