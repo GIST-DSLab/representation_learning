@@ -16,7 +16,7 @@ class custom_embedding_layer(nn.Module):
 
         return x_embedding
 
-class vae_v1(nn.Module):
+class vae_v1_1(nn.Module):
     def __init__(self, model_file):
         super().__init__()
 
@@ -57,6 +57,59 @@ class vae_v1(nn.Module):
         latent_vector = mu + std * eps
         output = self.decoder(latent_vector)
         output = self.proj(output).reshape(-1,30,30,11).permute(0,3,1,2)
+
+        return output
+
+    def for_preprocessing(self, x):
+        if len(x.shape) >= 3:
+            batch_size = x.shape[0]
+            embed_x = self.embedding(x.reshape(batch_size, 900).to(torch.long))
+        else:
+            embed_x = self.embedding(x.reshape(1, 900).to(torch.long))
+        feature_map = self.encoder(embed_x)
+        mu = self.mu_layer(feature_map)
+        sigma = self.mu_layer(feature_map)
+        std = torch.exp(0.5 * sigma)
+        eps = torch.randn_like(std)
+        latent_vector = mu + std * eps
+
+        return latent_vector
+class vae_v1_2(nn.Module):
+    def __init__(self, model_file):
+        super().__init__()
+
+        self.padding_number = 0
+        self.num_class = 11
+        self.embedding = custom_embedding_layer(self.padding_number, self.num_class, 512)
+
+        self.encoder = nn.Sequential(
+            nn.Linear(256, 128),
+            nn.ReLU(),
+            nn.Linear(128, 128),
+            nn.ReLU(),
+        )
+
+        self.decoder = nn.Sequential(
+            nn.Linear(128, 128),
+            nn.ReLU(),
+            nn.Linear(128, 256),
+            nn.ReLU(),
+        )
+
+        self.mu_layer = nn.Linear(128, 128)
+        self.sigma_layer = nn.Linear(128, 128)
+
+    def forward(self, concat_input):
+        concat_feature = self.encoder(concat_input)
+
+        concat_mu = self.mu_layer(concat_feature)
+        concat_sigma = self.mu_layer(concat_feature)
+        concat_std = torch.exp(0.5 * concat_sigma)
+        concat_eps = torch.randn_like(concat_std)
+        concat_latent_vector = concat_mu + concat_std * concat_eps
+
+        output = self.decoder(concat_latent_vector)
+
 
         return output
 

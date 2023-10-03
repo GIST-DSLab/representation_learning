@@ -25,6 +25,7 @@ class Base_Trainer:
         self.use_wandb = config['use_wandb']
 
         self.model_name = config['model_name']
+        self.mode_name = config['mode']
 
         self.total_acc = 0
         self.count = 0

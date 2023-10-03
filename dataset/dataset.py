@@ -17,13 +17,13 @@ class ARCDataset(Dataset):
       self.dataset = json.load(f)
 
   def __len__(self):
-    if self.mode == 'phase0_v1':
+    if self.mode == 'phase0_v1_1':
         return len(self.dataset['data'])
     else:
         return len(self.dataset['input'])
 
   def __getitem__(self,idx):
-    if self.mode == 'phase0_v1':
+    if self.mode == 'phase0_v1_1':
         x = self.dataset['data'][idx]
         size = self.dataset['size'][idx]
 
@@ -37,6 +37,15 @@ class ARCDataset(Dataset):
                 for j in range(30):
                     x[i][j] = self.permute_color[x[i][j]]
         return torch.tensor(x), torch.tensor(size)
+    elif self.mode =='phase0_v1_2':
+        x = self.dataset['input'][idx]
+        y = self.dataset['output'][idx]
+        tensor_path = self.dataset['tensor_path'][idx]
+
+        concat_tensor = torch.load(f'./data/{tensor_path}')
+
+        return torch.tensor(x, dtype=torch.long), torch.tensor(y, dtype=torch.long), concat_tensor
+
     elif self.mode == 'phase0_v2':
         x = self.dataset['input'][idx]
         y = self.dataset['output'][idx]
