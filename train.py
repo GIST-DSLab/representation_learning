@@ -36,7 +36,8 @@ def main(config, args):
     valid_dataset_name = config['valid_data']
 
     mode = config['mode']
-    device = f'cuda:{config["cuda_num"]}' if type(config['cuda_num']) == int else 'cpu'
+    device = torch.device(config["cuda_num"] if type(config['cuda_num']) == int else 'cpu')
+    os.environ["CUDA_VISIBLE_DEVICES"] = str(config["cuda_num"]) if type(config['cuda_num']) == int else 'cpu'
 
     # setup data_loader instances
     # dataloader 설정
