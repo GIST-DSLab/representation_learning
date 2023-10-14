@@ -83,21 +83,21 @@ class vae_v1_2(nn.Module):
         self.embedding = custom_embedding_layer(self.padding_number, self.num_class, 512)
 
         self.encoder = nn.Sequential(
-            nn.Linear(256, 128),
+            nn.Linear(256, 128, bias=False),
             nn.ReLU(),
-            nn.Linear(128, 128),
+            nn.Linear(128, 128, bias=False),
             nn.ReLU(),
         )
 
         self.decoder = nn.Sequential(
-            nn.Linear(128, 128),
+            nn.Linear(128, 128, bias=False),
             nn.ReLU(),
-            nn.Linear(128, 256),
+            nn.Linear(128, 256, bias=False),
             nn.ReLU(),
         )
 
-        self.mu_layer = nn.Linear(128, 128)
-        self.sigma_layer = nn.Linear(128, 128)
+        self.mu_layer = nn.Linear(128, 128, bias=False)
+        self.sigma_layer = nn.Linear(128, 128, bias=False)
 
     def forward(self, concat_input):
         concat_feature = self.encoder(concat_input)
@@ -112,6 +112,29 @@ class vae_v1_2(nn.Module):
 
 
         return output
+
+class vae_v1(nn.Module):
+    def __init__(self, model_file):
+        super().__init__()
+        self.vae_v1_1 = vae_v1_1(model_file)
+        self.vae_v1_2 = vae_v1_2(model_file)
+
+    def forward(self, x):
+        if len(x.shape) >= 3:
+            batch_size = x.shape[0]
+            # embed_x = self.vae_v1_1.embedding(x.reshape(batch_size, 900).to(torch.long))
+            embed_x = self.vae_v1_1.embedding(x.to(torch.long))
+        else:
+            embed_x = self.vae_v1_1.embedding(x.reshape(1, 900).to(torch.long))
+        e1_feature_map = self.vae_v1_1.encoder(embed_x)
+        e1_mu = self.vae_v1_1.mu_layer(e1_feature_map)
+        e1_sigma = self.vae_v1_1.mu_layer(e1_feature_map)
+        e1_std = torch.exp(0.5 * e1_sigma)
+        e1_eps = torch.randn_like(e1_std)
+        e1_latent_vector = e1_mu + e1_std * e1_eps
+
+        print(1)
+
 
 class vae_v2(nn.Module):
     def __init__(self, model_file):

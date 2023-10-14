@@ -61,7 +61,7 @@ def main(config, args):
     model = globals()[model_name](model_file).to(device)
     if use_pretrain:
         pretrain_file = config['pretrain_file']
-        model.load_state_dict(torch.load(pretrain_file))
+        model.vae_v1_1.load_state_dict(torch.load(pretrain_file))
 
     # setup function handles of loss and metrics
     # loss함수와 metrics 설정

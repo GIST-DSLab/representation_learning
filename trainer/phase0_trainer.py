@@ -25,7 +25,7 @@ class Phase0_v1_1_Trainer(Base_Trainer):
                 self.model.train()
                 for data, size in self.train_loader:
                     total_loss = []
-                    data = data.clone().detach().to(torch.float32).to('cuda')
+                    data = data.clone().detach().to(torch.float32).to(self.device)
                     if self.use_batch:
                         data = data.unsqueeze(1)
 
@@ -103,7 +103,7 @@ class Phase0_v1_1_Trainer(Base_Trainer):
         self.model.eval()
 
         for data, size in self.valid_loader:
-            data = data.clone().detach().to(torch.float32).to('cuda')
+            data = data.clone().detach().to(torch.float32).to(self.device)
             # if use_permute:
             #     for i in range(30):
             #         for j in range(30):
@@ -190,7 +190,7 @@ class Phase0_v1_2_Trainer(Base_Trainer):
                 train_loss = []
                 self.model.train()
                 for input, output, concat in self.train_loader:
-                    concat = concat.clone().detach().to('cuda')
+                    concat = concat.clone().detach().to(self.device)
 
                     concat_pred = self.model(concat)
 
