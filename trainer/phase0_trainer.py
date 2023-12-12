@@ -134,7 +134,7 @@ class Phase0_v1_1_Trainer(Base_Trainer):
                     for i in range(data.shape[0]):
                         total_loss.append(self.criterion(
                             output[i, :, :size[i][0], :size[i][1]].reshape(-1, size[i][0] * size[i][1]).T.squeeze(),
-                            data[i, :, :size[i][0], :size[i][1]].reshape(-1, size[i][0] * size[i][1]).T.squeeze().to(
+                            data[i, :size[i][0], :size[i][1]].reshape(-1, size[i][0] * size[i][1]).T.squeeze().to(
                                 torch.long)))
                     loss = torch.stack(total_loss).mean()
             else:

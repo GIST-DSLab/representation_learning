@@ -75,6 +75,9 @@ def main(config, args):
     trainer = globals()[trainer_name](model, criterion, optimizer, config,
                       train_loader, valid_loader, scheduler, run)
 
+    print(f'Train: {train_dataset.__len__()}')
+    print(f'Valid: {valid_dataset.__len__()}')
+
     trainer.train_epoch()
 
 

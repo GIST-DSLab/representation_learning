@@ -305,21 +305,21 @@ for i, file in enumerate(test_files):
         # # test_auto_size.append(output_size)
         # test_task_class.append(target_file_name)
 
-train_json_data = {
-    'input': train_input,
-    'output': train_output,
-    'input_size': train_input_size,
-    'output_size': train_output_size,
-    'task': train_task_class,
-}
-
-valid_json_data = {
-    'input': valid_input,
-    'output': valid_output,
-    'input_size': valid_input_size,
-    'output_size': valid_output_size,
-    'task': valid_task_class,
-}
+# train_json_data = {
+#     'input': train_input,
+#     'output': train_output,
+#     'input_size': train_input_size,
+#     'output_size': train_output_size,
+#     'task': train_task_class,
+# }
+#
+# valid_json_data = {
+#     'input': valid_input,
+#     'output': valid_output,
+#     'input_size': valid_input_size,
+#     'output_size': valid_output_size,
+#     'task': valid_task_class,
+# }
 
 test_json_data = {
     'input': test_input,
@@ -354,9 +354,9 @@ test_json_data = {
 # with open(f'{dataset_path}/valid_new_idea_task_sample2_.json', 'w') as f:
 #     json.dump(valid_json_data, f)
 
-with open(f'{dataset_path}/phase1_concept_train_common.json', 'w') as f:
-    json.dump(train_json_data, f)
+# with open(f'{dataset_path}/phase1_concept_train_common.json', 'w') as f:
+#     json.dump(train_json_data, f)
 
-with open(f'{dataset_path}/phase1_concept_valid_common.json', 'w') as f:
+with open(f'{dataset_path}/Concept_classification.json', 'w') as f:
     # json.dump(valid_json_data, f)
     json.dump(test_json_data, f)
