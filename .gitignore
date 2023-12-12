@@ -1,5 +1,5 @@
 *.csv
-*.json
+# *.json
 backup_file/
 data/
 wandb/
