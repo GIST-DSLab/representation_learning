@@ -11,10 +11,17 @@
 |
 ├─origin_dataset
 |  ├─LARC_dataset
+|  ├─concept_eval
+|  ├─concept_total
+|  ├─concept_train
 |  ├─corpus
+|  ├─evaluation
+|  ├─training
 | There exists original data files. If you can use preprocess files, then you can get data that is simliar data in google drive.
 | LARC_dataset is text data - https://github.com/samacqua/LARC
+| concept total/train/eval just are divide. So this data is included in corpus.
 | corpus is ConceptARC dataset. That include 16 kinds ARC tasks and each kind involve 10 problems -  https://github.com/victorvikram/ConceptARC
+| training and evaluation are original ARC dataset.
 |
 ├─dataset: 
 | Dataset class was defined in this directory
