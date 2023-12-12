@@ -9,8 +9,12 @@
 | Some data exist in this directory to use train or validation. 
 | This directory does not exist in gihub because of their size of storage, so you download this google drive. 
 |
-├─origin_dataset: 
+├─origin_dataset
+|  ├─LARC_dataset
+|  ├─corpus
 | There exists original data files. If you can use preprocess files, then you can get data that is simliar data in google drive.
+| LARC_dataset is text data - https://github.com/samacqua/LARC
+| corpus is ConceptARC dataset. That include 16 kinds ARC tasks and each kind involve 10 problems -  https://github.com/victorvikram/ConceptARC
 |
 ├─dataset: 
 | Dataset class was defined in this directory
